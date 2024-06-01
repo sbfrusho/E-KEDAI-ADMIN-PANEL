@@ -131,8 +131,6 @@ class AllCategoriesScreen extends StatelessWidget {
                       ),
                       title: Text(categoriesModel.categoryName),
                       subtitle: Text(categoriesModel.categoryId),
-                      trailing: GestureDetector(
-                          onTap: () {}, child: const Icon(Icons.edit)),
                     ),
                   ),
                 );

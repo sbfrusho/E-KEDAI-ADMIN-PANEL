@@ -4,8 +4,6 @@ import 'package:admin_panel/utils/constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'specific-customer-orders-screen.dart';
 
 class AllOrdersScreen extends StatelessWidget {
   const AllOrdersScreen({super.key});
@@ -69,7 +67,6 @@ class AllOrdersScreen extends StatelessWidget {
                     ),
                     title: Text(data['customerName']),
                     subtitle: Text(data['customerPhone']),
-                    trailing: Icon(Icons.edit),
                   ),
                 );
               },
