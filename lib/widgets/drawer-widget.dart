@@ -239,31 +239,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: ListTile(
-                onTap: () async {
-                  // if (user != null) {
-                  //   EasyLoading.show();
-                  //   await FirebaseAuth.instance.signOut();
-                  //   await _googleSignIn.signOut();
-                  //   Get.offAll(() => MainScreen());
-                  //   EasyLoading.dismiss();
-                  // } else {
-                  //   Get.back();
-                  //   await googleSignInController.signInWithGoogle();
-                  // }
-                },
-                title: Text(
-                  user != null ? 'Logout' : 'Login',
-                  style: TextStyle(color: Colors.white),
-                ),
-                leading: Icon(
-                  user != null ? Icons.logout : Icons.login,
-                  color: Colors.white,
-                ),
-              ),
-            )
+     
           ],
         ),
         width: Get.width - 80.0,
