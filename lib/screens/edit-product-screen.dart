@@ -30,6 +30,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   TextEditingController fullPriceController = TextEditingController();
   TextEditingController deliveryTimeController = TextEditingController();
   TextEditingController productDescriptionController = TextEditingController();
+  TextEditingController shopNameController = TextEditingController();
 
   @override
   void initState() {
@@ -39,6 +40,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     fullPriceController.text = widget.productModel.fullPrice;
     deliveryTimeController.text = widget.productModel.deliveryTime;
     productDescriptionController.text = widget.productModel.productDescription;
+    shopNameController.text = widget.productModel.shopName;
   }
 
   @override
@@ -343,6 +345,27 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       ),
                     ),
                   ),
+                  Container(
+                    height: 65,
+                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: TextFormField(
+                      cursorColor: AppConstant.colorBlue,
+                      textInputAction: TextInputAction.next,
+                      controller: shopNameController,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 10.0,
+                        ),
+                        hintText: "Enter where collected from",
+                        hintStyle: TextStyle(fontSize: 12.0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
 
                   ElevatedButton(
                     onPressed: () async {
@@ -369,6 +392,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                             productDescriptionController.text.trim(),
                         createdAt: widget.productModel.createdAt,
                         updatedAt: DateTime.now(),
+                        shopName: shopNameController.text.trim(),
                       );
 
                       await FirebaseFirestore.instance

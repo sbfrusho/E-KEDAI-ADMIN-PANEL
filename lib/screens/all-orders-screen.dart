@@ -1,9 +1,12 @@
 // ignore_for_file: file_names, avoid_unnecessary_containers, prefer_const_constructors, avoid_print
 
+import 'package:admin_panel/screens/add-products-screen.dart';
+import 'package:admin_panel/screens/check-single-order-screen.dart';
 import 'package:admin_panel/utils/constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AllOrdersScreen extends StatelessWidget {
   const AllOrdersScreen({super.key});
@@ -14,6 +17,12 @@ class AllOrdersScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("All Orders"),
         backgroundColor: AppConstant.colorBlue,
+        iconTheme: IconThemeData(color: Colors.white),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.offAll(AddProductScreen());
+          },),
       ),
       body: FutureBuilder(
         future: FirebaseFirestore.instance
@@ -54,13 +63,7 @@ class AllOrdersScreen extends StatelessWidget {
                 return Card(
                   elevation: 5,
                   child: ListTile(
-                    // onTap: () => Get.to(
-                    //   () => SpecificCustomerOrderScreen(
-                    //     docId: snapshot.data!.docs[index]['customerId'],
-                    //     customerName: snapshot.data!.docs[index]
-                    //         ['customerName'],
-                    //   ),
-                    // ),
+                    onTap: () => Get.offAll(OrderItemsScreen(orderId:data.id)),
                     leading: CircleAvatar(
                       backgroundColor: AppConstant.colorYellow,
                       child: Text(data['customerName'][0]),

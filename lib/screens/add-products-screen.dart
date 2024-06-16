@@ -31,6 +31,7 @@ class AddProductScreen extends StatelessWidget {
   TextEditingController fullPriceController = TextEditingController();
   TextEditingController deliveryTimeController = TextEditingController();
   TextEditingController productDescriptionController = TextEditingController();
+  TextEditingController shopNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -264,6 +265,29 @@ class AddProductScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 10.0),
+              Container(
+                height: 65,
+                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                child: TextFormField(
+                  cursorColor: AppConstant.colorBlue,
+                  textInputAction: TextInputAction.next,
+                  controller: shopNameController,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 10.0,
+                    ),
+                    hintText: "Enter where the product collected from",
+                    label: Text("Shop name"),
+                    hintStyle: TextStyle(fontSize: 12.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
 
               ElevatedButton(
                 onPressed: () async {
@@ -296,6 +320,7 @@ class AddProductScreen extends StatelessWidget {
                           productDescriptionController.text.trim(),
                       createdAt: DateTime.now(),
                       updatedAt: DateTime.now(),
+                      shopName: shopNameController.text.trim(),
                     );
 
                     await FirebaseFirestore.instance

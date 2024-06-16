@@ -89,6 +89,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                   productDescription: data['productDescription'],
                   createdAt: data['createdAt'],
                   updatedAt: data['updatedAt'],
+                  shopName: data['shopName'],
                 );
 
                 return SwipeActionCell(
